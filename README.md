@@ -24,6 +24,7 @@ Create a program to track a game of TicTacToe between two human players.
 ### Tools
 
 - [.NET 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+- [Visual Studio](https://visualstudio.microsoft.com/es/)
  
 ## Documentations
 Wikipedia entry: http://en.wikipedia.org/wiki/Tic-tac-toe

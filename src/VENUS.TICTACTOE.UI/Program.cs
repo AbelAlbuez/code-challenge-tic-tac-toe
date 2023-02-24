@@ -21,7 +21,6 @@
                     {
                         Console.WriteLine($"Player {movement.player.ToString()} - Moved row {movement.position.row} and column {movement.position.column}");
                     }
-                    Console.WriteLine("\n");
                     canvas.PrintBoard();
                     Console.WriteLine("\n");
                     Console.WriteLine("Waiting for player {0}", match.GetCurrentPlayer().ToString());
@@ -31,6 +30,7 @@
                     string column = Console.ReadLine();
                     Position position = canvas.ReadPosition(row, column);
                     match.MakeMove(position);
+                    canvas.PrintBoard();
                     match.CheckWinner();
                     Console.WriteLine("\n");
                 }

@@ -61,7 +61,7 @@
             if ( board.GetAllPosition(0, 0) != null ) { 
                 if(board.board[0, 0] == board.board[0, 1] && board.board[0, 1]  == board.board[0, 2])
                 {
-                    Console.WriteLine("Winner : " + board.board[0, 0]);
+                    Console.WriteLine("The Player {0} is Winner", board.board[0, 2]);
                     Console.Read();
                     GameOver = true;
                 }
@@ -71,7 +71,7 @@
             {
                 if (board.board[1, 0] == board.board[1, 1] && board.board[1, 1] == board.board[1, 2])
                 {
-                    Console.WriteLine("Winner : " + board.board[1, 0]);
+                    Console.WriteLine("The Player {0} is Winner", board.board[0, 2]);
                     Console.Read();
                     GameOver = true;
                 }
@@ -81,7 +81,7 @@
             {
                 if (board.board[2, 0] == board.board[2, 1] && board.board[2, 1] == board.board[2, 2])
                 {
-                    Console.WriteLine("Winner : " + board.board[2, 0]);
+                    Console.WriteLine("The Player {0} is Winner", board.board[0, 2]);
                     Console.Read();
                     GameOver = true;
                 }
@@ -93,7 +93,7 @@
             {
                 if (board.board[0, 0] == board.board[1, 0] && board.board[2, 1] == board.board[2, 2])
                 {
-                    Console.WriteLine("Winner : " + board.board[0, 0]);
+                    Console.WriteLine("The Player {0} is Winner", board.board[0, 2]);
                     Console.Read();
                     GameOver = true;
                 }
@@ -104,7 +104,7 @@
             {
                 if (board.board[0, 1] == board.board[1, 1] && board.board[1, 1] == board.board[2, 1])
                 {
-                    Console.WriteLine("Winner : " + board.board[0, 1]);
+                    Console.WriteLine("The Player {0} is Winner", board.board[0, 2]);
                     Console.Read();
                     GameOver = true;
                 }
@@ -115,7 +115,7 @@
             {
                 if (board.board[0, 1] == board.board[1, 2] && board.board[1, 2] == board.board[2, 2])
                 {
-                    Console.WriteLine("Winner : " + board.board[0, 2]);
+                    Console.WriteLine("The Player {0} is Winner", board.board[0, 2]);
                     Console.Read();
                     GameOver = true;
                 }
@@ -126,7 +126,7 @@
             {
                 if (board.board[0, 2] == board.board[1, 1] && board.board[1, 1] == board.board[2, 2])
                 {
-                    Console.WriteLine("Winner : " + board.board[0, 2]);
+                    Console.WriteLine("The Player {0} is Winner", board.board[0, 2]);
                     Console.Read();
                     GameOver = true;
                 }
@@ -138,7 +138,7 @@
             {
                 if (board.board[0, 2] == board.board[1, 1] && board.board[1, 1] == board.board[2, 0])
                 {
-                    Console.WriteLine("Winner : " + board.board[0, 2]);
+                    Console.WriteLine("The Player {0} is Winner", board.board[0, 2]);
                     Console.Read();
                     GameOver = true;
                 }
