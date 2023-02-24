@@ -42,7 +42,7 @@
 
         public void MakeMove(Position newPosition)
         {
-            CheckWinner();
+          
             board.MovePlayerAt(GetCurrentPlayer(), newPosition);
             movements.Add(new Movement(GetCurrentPlayer(), newPosition));
             numberOfPlayLeft--;
@@ -54,11 +54,11 @@
             movements.Add(movement);
         }
 
-        private void CheckWinner()
+        public void CheckWinner()
         {
 
             #region Horzontal Winning Condtion
-            if ( board.getAllPosition(0, 0) != null ) { 
+            if ( board.GetAllPosition(0, 0) != null ) { 
                 if(board.board[0, 0] == board.board[0, 1] && board.board[0, 1]  == board.board[0, 2])
                 {
                     Console.WriteLine("Winner : " + board.board[0, 0]);
@@ -67,7 +67,7 @@
                 }
             }
 
-            if (board.getAllPosition(1, 0) != null)
+            if (board.GetAllPosition(1, 0) != null)
             {
                 if (board.board[1, 0] == board.board[1, 1] && board.board[1, 1] == board.board[1, 2])
                 {
@@ -77,7 +77,7 @@
                 }
             }
 
-            if (board.getAllPosition(2, 0) != null)
+            if (board.GetAllPosition(2, 0) != null)
             {
                 if (board.board[2, 0] == board.board[2, 1] && board.board[2, 1] == board.board[2, 2])
                 {
@@ -89,7 +89,7 @@
 
             #endregion
             #region Left Winning Condtion
-            if (board.getAllPosition(0, 0) != null)
+            if (board.GetAllPosition(0, 0) != null)
             {
                 if (board.board[0, 0] == board.board[1, 0] && board.board[2, 1] == board.board[2, 2])
                 {
@@ -100,7 +100,7 @@
             }
             #endregion
             #region Middle Winning Condition
-            if (board.getAllPosition(0, 1) != null)
+            if (board.GetAllPosition(0, 1) != null)
             {
                 if (board.board[0, 1] == board.board[1, 1] && board.board[1, 1] == board.board[2, 1])
                 {
@@ -111,7 +111,7 @@
             }
             #endregion
             #region Right Winning Condition
-            if (board.getAllPosition(0, 2) != null)
+            if (board.GetAllPosition(0, 2) != null)
             {
                 if (board.board[0, 1] == board.board[1, 2] && board.board[1, 2] == board.board[2, 2])
                 {
@@ -122,7 +122,7 @@
             }
             #endregion
             #region Diagonal Winning Condition
-            if (board.getAllPosition(0, 2) != null)
+            if (board.GetAllPosition(0, 2) != null)
             {
                 if (board.board[0, 2] == board.board[1, 1] && board.board[1, 1] == board.board[2, 2])
                 {
@@ -134,7 +134,7 @@
             #endregion
 
             #region Anti Diagonal Winning Condition
-            if (board.getAllPosition(0, 2) != null)
+            if (board.GetAllPosition(0, 2) != null)
             {
                 if (board.board[0, 2] == board.board[1, 1] && board.board[1, 1] == board.board[2, 0])
                 {

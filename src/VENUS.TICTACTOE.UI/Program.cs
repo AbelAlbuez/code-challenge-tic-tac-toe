@@ -14,7 +14,16 @@
             {
                 try
                 {
-                    Console.WriteLine(match.numberOfPlayLeft);
+
+                    Console.WriteLine("\nTicTacToe GAME");
+                    Console.WriteLine("The game is in process - {0} plays left", match.numberOfPlayLeft);
+                    foreach (var movement in match.movements)
+                    {
+                        Console.WriteLine($"Player {movement.player.ToString()} - Moved row {movement.position.row} and column {movement.position.column}");
+                    }
+                    Console.WriteLine("\n");
+                    canvas.PrintBoard();
+                    Console.WriteLine("\n");
                     Console.WriteLine("Waiting for player {0}", match.GetCurrentPlayer().ToString());
                     Console.WriteLine("In which row do you want to play?");
                     string row = Console.ReadLine();
@@ -22,8 +31,8 @@
                     string column = Console.ReadLine();
                     Position position = canvas.ReadPosition(row, column);
                     match.MakeMove(position);
-                    canvas.PrintBoard();
-                    //Console.Clear();
+                    match.CheckWinner();
+                    Console.WriteLine("\n");
                 }
                 catch (Exception ex)
                 {

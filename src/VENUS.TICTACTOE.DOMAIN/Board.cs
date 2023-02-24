@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,8 +26,13 @@ namespace VENUS.TICTACTOE.DOMAIN
             return board[position.row, position.column];
         }
 
-        public string getAllPosition(int rows, int columns)
+        public string GetAllPosition(int rows, int columns)
         {
+            if(string.IsNullOrWhiteSpace(board[rows, columns]))
+            {
+                return null;
+            }
+
             return board[rows, columns];
         }
 
@@ -48,8 +54,7 @@ namespace VENUS.TICTACTOE.DOMAIN
         {
             if (positionIsAvailable(position))
             {
-               Console.WriteLine("There is already a player in this position");
-               Console.WriteLine("\n");
+               throw new Exception($"Player {player.ToString()}: Cannot move to an occupied position");
             }
             else
             {
@@ -62,7 +67,7 @@ namespace VENUS.TICTACTOE.DOMAIN
         {
             if (!isOutOfBoard(position))
             {
-                throw new Exception("Position is out of board");
+                throw new Exception($"Invalid move: Cannot move to a position off the board.");
             }
         }
     }

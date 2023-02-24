@@ -22,11 +22,11 @@
         public void PrintBoard()
         {
             Console.WriteLine("___________________________________");
-            Console.WriteLine("3" + "  {0}     |  {1}    |   {2}  ", _board.board[0, 0], _board.board[0, 1], _board.board[0, 2]);
+            Console.WriteLine(" " + "  {0}     |  {1}    |   {2}  ", _board.board[0, 0], _board.board[0, 1], _board.board[0, 2]);
             Console.WriteLine("___________________________________");
-            Console.WriteLine("2" + "  {0}     |  {1}    |   {2}  ", _board.board[1, 0], _board.board[1, 1], _board.board[1, 2]);
+            Console.WriteLine(" " + "  {0}     |  {1}    |   {2}  ", _board.board[1, 0], _board.board[1, 1], _board.board[1, 2]);
             Console.WriteLine("___________________________________");
-            Console.WriteLine("1" + "  {0}     |  {1}    |   {2}  ", _board.board[2, 0], _board.board[2, 1], _board.board[2, 2]);
+            Console.WriteLine(" " + "  {0}     |  {1}    |   {2}  ", _board.board[2, 0], _board.board[2, 1], _board.board[2, 2]);
             Console.WriteLine("___________________________________");
             Console.WriteLine(" " + "  a     |  b    |   c  ");
         }
