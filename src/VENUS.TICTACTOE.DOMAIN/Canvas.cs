@@ -25,9 +25,9 @@
         {
             string choice = Console.ReadLine();
             int position = int.Parse(choice);
-            if (position >= _board.Length)
+            if (position >= _board.Length || position < 1)
             {
-                Console.WriteLine("Weong movement", choice);
+                Console.WriteLine("Invalid movement", choice);
                 Console.WriteLine("\n");
                 Console.WriteLine("Please wait 2 second board is loading again.....");
                 Thread.Sleep(2000);
