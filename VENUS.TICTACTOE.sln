@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VENUS.TICTACTOE.UI", "src\VENUS.TICTACTOE.UI\VENUS.TICTACTOE.UI.csproj", "{D54A2E04-F1B4-43D5-A247-AB3F165AEC9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VENUS.TICTACTOE.UI", "src\VENUS.TICTACTOE.UI\VENUS.TICTACTOE.UI.csproj", "{D54A2E04-F1B4-43D5-A247-AB3F165AEC9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VENUS.TICTACTOE.DOMAIN", "VENUS.TICTACTOE.DOMAIN\VENUS.TICTACTOE.DOMAIN.csproj", "{F72C7631-9121-4A5A-95C6-C8A8F12379D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D54A2E04-F1B4-43D5-A247-AB3F165AEC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D54A2E04-F1B4-43D5-A247-AB3F165AEC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D54A2E04-F1B4-43D5-A247-AB3F165AEC9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F72C7631-9121-4A5A-95C6-C8A8F12379D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F72C7631-9121-4A5A-95C6-C8A8F12379D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F72C7631-9121-4A5A-95C6-C8A8F12379D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F72C7631-9121-4A5A-95C6-C8A8F12379D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

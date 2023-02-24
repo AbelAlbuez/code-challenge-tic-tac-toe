@@ -18,6 +18,12 @@ Create a program to track a game of TicTacToe between two human players.
 - Work independently.
 - Document any assumptions you make.
 - Document the time spent on the project.
+
+## Running application
+
+### Tools
+
+- [.NET 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
  
 ## Documentations
 Wikipedia entry: http://en.wikipedia.org/wiki/Tic-tac-toe
