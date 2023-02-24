@@ -3,56 +3,47 @@
     using System;
     public class Canvas
     {
-        private char[] _board { get; set; }
-        public Canvas(char[] board)
+        private Board _board { get; set; }
+        public Canvas(Board board)
         {
             _board = board;
+            CreateBoard();
+        }
+        private void CreateBoard()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    _board.board[i, j] = " ";
+                }
+            }
         }
         public void PrintBoard()
         {
-            Console.WriteLine("     |     |      ");
-            Console.WriteLine("  {0}  |  {1}  |  {2}", _board[1], _board[2], _board[3]);
-            Console.WriteLine("_____|_____|_____ ");
-            Console.WriteLine("     |     |      ");
-            Console.WriteLine("  {0}  |  {1}  |  {2}", _board[4], _board[5], _board[6]);
-            Console.WriteLine("_____|_____|_____ ");
-            Console.WriteLine("     |     |      ");
-            Console.WriteLine("  {0}  |  {1}  |  {2}", _board[7], _board[8], _board[9]);
-            Console.WriteLine("     |     |      ");
+            Console.WriteLine("___________________________________");
+            Console.WriteLine(" " + "  {0}     |  {1}    |   {2}  ", _board.board[0, 0], _board.board[0, 1], _board.board[0, 2]);
+            Console.WriteLine("___________________________________");
+            Console.WriteLine(" " + "  {0}     |  {1}    |   {2}  ", _board.board[1, 0], _board.board[1, 1], _board.board[1, 2]);
+            Console.WriteLine("___________________________________");
+            Console.WriteLine(" " + "  {0}     |  {1}    |   {2}  ", _board.board[2, 0], _board.board[2, 1], _board.board[2, 2]);
+            Console.WriteLine("___________________________________");
+            Console.WriteLine(" " + "  a     |  b    |   c  ");
         }
 
-        public void ReadPosition(int player)
+        public Position ReadPosition(string row, string column)
         {
-            string choice = Console.ReadLine();
-            int position = int.Parse(choice);
-            if (position >= _board.Length || position < 1)
+            if(string.IsNullOrEmpty(row))
             {
-                Console.WriteLine("Invalid movement", choice);
-                Console.WriteLine("\n");
-                Console.WriteLine("Please wait 2 second board is loading again.....");
-                Thread.Sleep(2000);
+                throw new Exception("You have entered an invalid row");
             }
-            else
+
+            if (string.IsNullOrEmpty(column))
             {
-                if (_board[position] != 'X' && _board[position] != 'O')
-                {
-                    if (player % 2 == 0)
-                    {
-                        _board[position] = 'O';
-                    }
-                    else
-                    {
-                        _board[position] = 'X';
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Sorry the row {0} is already marked with {1}", choice, _board[position]);
-                    Console.WriteLine("\n");
-                    Console.WriteLine("Please wait 2 second board is loading again.....");
-                    Thread.Sleep(2000);
-                }
+                throw new Exception("You have entered an invalid column");
             }
+
+            return new Position(int.Parse(row), int.Parse(column));
         }
     }
 }
