@@ -1,6 +1,6 @@
 namespace VENUS.TICTACTOE.TEST
 {
-    public class UnitTest1
+    public class MatchTest
     {
         [Fact]
         public void Test1()

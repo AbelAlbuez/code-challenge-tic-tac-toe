@@ -113,7 +113,7 @@
             #region Right Winning Condition
             if (board.GetAllPosition(0, 2) != null)
             {
-                if (board.board[0, 1] == board.board[1, 2] && board.board[1, 2] == board.board[2, 2])
+                if (board.board[0, 2] == board.board[1, 2] && board.board[1, 2] == board.board[2, 2])
                 {
                     Console.WriteLine("The Player {0} is Winner", board.board[0, 2]);
                     Console.Read();
@@ -124,7 +124,7 @@
             #region Diagonal Winning Condition
             if (board.GetAllPosition(0, 2) != null)
             {
-                if (board.board[0, 2] == board.board[1, 1] && board.board[1, 1] == board.board[2, 2])
+                if (board.board[0, 2] == board.board[1, 1] && board.board[1, 1] == board.board[2, 0])
                 {
                     Console.WriteLine("The Player {0} is Winner", board.board[0, 2]);
                     Console.Read();
@@ -134,9 +134,9 @@
             #endregion
 
             #region Anti Diagonal Winning Condition
-            if (board.GetAllPosition(0, 2) != null)
+            if (board.GetAllPosition(2, 0) != null)
             {
-                if (board.board[0, 2] == board.board[1, 1] && board.board[1, 1] == board.board[2, 0])
+                if (board.board[2, 0] == board.board[1, 1] && board.board[1, 1] == board.board[0, 2])
                 {
                     Console.WriteLine("The Player {0} is Winner", board.board[0, 2]);
                     Console.Read();
