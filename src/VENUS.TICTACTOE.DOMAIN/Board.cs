@@ -9,40 +9,40 @@ namespace VENUS.TICTACTOE.DOMAIN
 {
     public class Board
     {
-        public int rows { get; set; }
-        public int columns { get; set; }
+        public int Rows { get; set; }
+        public int Columns { get; set; }
         public string[,] board { get; set; }
 
-        public Board(int rows, int columns)
+        public Board(int Rows, int Columns)
         {
-            this.rows = rows;
-            this.columns = columns;
-            this.board = new string[rows, columns];
+            this.Rows = Rows;
+            this.Columns = Columns;
+            this.board = new string[Rows, Columns];
         }
 
-        public string getPosition(Position position)
+        public string GetPosition(Position position)
         {
             InsideOfBoard(position);
             return board[position.row, position.column];
         }
 
-        public string GetAllPosition(int rows, int columns)
+        public string GetAllPosition(int Rows, int Columns)
         {
-            if(string.IsNullOrWhiteSpace(board[rows, columns]))
+            if(string.IsNullOrWhiteSpace(board[Rows, Columns]))
             {
                 return null;
             }
 
-            return board[rows, columns];
+            return board[Rows, Columns];
         }
 
-        public bool positionIsAvailable(Position position)
+        public bool PositionIsAvailable(Position position)
         {
-            return !string.IsNullOrWhiteSpace(getPosition(position));
+            return !string.IsNullOrWhiteSpace(GetPosition(position));
         }
-        public bool isOutOfBoard(Position position)
+        public bool IsOutOfBoard(Position position)
         {
-            if (position.row < 0 || position.row >= rows || position.column < 0 || position.column >= columns)
+            if (position.row < 0 || position.row >= Rows || position.column < 0 || position.column >= Columns)
             {
                 return false;
             }
@@ -52,7 +52,7 @@ namespace VENUS.TICTACTOE.DOMAIN
 
         public void MovePlayerAt(Player player, Position position)
         {
-            if (positionIsAvailable(position))
+            if (PositionIsAvailable(position))
             {
                throw new Exception($"Player {player.ToString()}: Cannot move to an occupied position");
             }
@@ -65,7 +65,7 @@ namespace VENUS.TICTACTOE.DOMAIN
 
         public void InsideOfBoard(Position position)
         {
-            if (!isOutOfBoard(position))
+            if (!IsOutOfBoard(position))
             {
                 throw new Exception($"Invalid move: Cannot move to a position off the board.");
             }

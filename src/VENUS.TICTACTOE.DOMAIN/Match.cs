@@ -6,31 +6,31 @@
     public class Match
     {
         public Board board;
-        public Names currentPlayer { get; set; }
-        public int numberOfPlayLeft = 9;
-        public List<Movement> movements = new List<Movement>();
+        public Names CurrentPlayer { get; set; }
+        public int NumberOfPlayLeft = 9;
+        public List<Movement> Movements = new List<Movement>();
         public bool GameOver = false; 
         public Match()
         {
             board = new Board(3, 3);
-            currentPlayer = Names.O;
+            CurrentPlayer = Names.O;
         }
 
         public void ChangePlayer()
         {
-            if(currentPlayer == Names.X)
+            if(CurrentPlayer == Names.X)
             {
-                currentPlayer = Names.O;
+                CurrentPlayer = Names.O;
             }
             else
             {
-                currentPlayer = Names.X;
+                CurrentPlayer = Names.X;
             }
         }
 
         public Player GetCurrentPlayer()
         {
-            if (currentPlayer == Names.X)
+            if (CurrentPlayer == Names.X)
             {
                 return new PlayerO(Names.O);
             }
@@ -44,14 +44,14 @@
         {
           
             board.MovePlayerAt(GetCurrentPlayer(), newPosition);
-            movements.Add(new Movement(GetCurrentPlayer(), newPosition));
-            numberOfPlayLeft--;
+            Movements.Add(new Movement(GetCurrentPlayer(), newPosition));
+            NumberOfPlayLeft--;
             ChangePlayer();
         }
 
         public void SaveMovement(Movement movement)
         {
-            movements.Add(movement);
+            Movements.Add(movement);
         }
 
         public void CheckWinner()
@@ -145,7 +145,7 @@
             }
             #endregion
 
-            if (numberOfPlayLeft == 0)
+            if (NumberOfPlayLeft == 0)
             {
                 Console.WriteLine("GAME OVER");
                 GameOver = true;

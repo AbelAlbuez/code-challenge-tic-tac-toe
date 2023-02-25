@@ -16,8 +16,8 @@
                 {
 
                     Console.WriteLine("\nTicTacToe GAME");
-                    Console.WriteLine("The game is in process - {0} plays left", match.numberOfPlayLeft);
-                    foreach (var movement in match.movements)
+                    Console.WriteLine("The game is in process - {0} plays left", match.NumberOfPlayLeft);
+                    foreach (var movement in match.Movements)
                     {
                         Console.WriteLine($"Player {movement.player.ToString()} - Moved row {movement.position.row} and column {movement.position.column}");
                     }
