@@ -15,33 +15,32 @@
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    _board.board[i, j] = " ";
+                    _board.Table[i, j] = " ";
                 }
             }
         }
+
         public void PrintBoard()
         {
-            Console.WriteLine("___________________________________");
-            Console.WriteLine(" " + "  {0}     |  {1}    |   {2}  ", _board.board[0, 0], _board.board[0, 1], _board.board[0, 2]);
-            Console.WriteLine("___________________________________");
-            Console.WriteLine(" " + "  {0}     |  {1}    |   {2}  ", _board.board[1, 0], _board.board[1, 1], _board.board[1, 2]);
-            Console.WriteLine("___________________________________");
-            Console.WriteLine(" " + "  {0}     |  {1}    |   {2}  ", _board.board[2, 0], _board.board[2, 1], _board.board[2, 2]);
-            Console.WriteLine("___________________________________");
-            Console.WriteLine(" " + "  a     |  b    |   c  ");
+            Console.WriteLine("\t--------------------------------------------------------------------------");
+            //Console.WriteLine("row: \t0 \t| \t1 \t| \t2");
+            Console.WriteLine($"\t0 \t| \t{_board.Table[0,0]} \t| \t{_board.Table[0,1]} \t| \t{_board.Table[0,2]} \t|");
+            Console.WriteLine("\t--------------------------------------------------------------------------");
+            Console.WriteLine($"\t1 \t| \t{_board.Table[1,0]} \t| \t{_board.Table[1,1]} \t| \t{_board.Table[1,2]} \t|");
+            Console.WriteLine("\t--------------------------------------------------------------------------");
+            Console.WriteLine($"\t2 \t| \t{_board.Table[2,0]} \t| \t{_board.Table[2,1]} \t| \t{_board.Table[2,2]}  \t|");
+            Console.WriteLine("\t--------------------------------------------------------------------------");
+            Console.WriteLine($"\tcolumn  | \t0 \t| \t1 \t| \t2  \t|");
+            Console.WriteLine("\t--------------------------------------------------------------------------");
         }
 
-        public Position ReadPosition(string row, string column)
+        public static Position ReadPosition(string row, string column)
         {
-            if(string.IsNullOrEmpty(row))
-            {
-                throw new Exception("You have entered an invalid row");
-            }
+            if (string.IsNullOrEmpty(row))
+                throw new ArgumentNullException(nameof(row));
 
             if (string.IsNullOrEmpty(column))
-            {
-                throw new Exception("You have entered an invalid column");
-            }
+                throw new ArgumentNullException(nameof(column));
 
             return new Position(int.Parse(row), int.Parse(column));
         }

@@ -19,7 +19,7 @@
                     Console.WriteLine("The game is in process - {0} plays left", match.NumberOfPlayLeft);
                     foreach (var movement in match.Movements)
                     {
-                        Console.WriteLine($"Player {movement.player.ToString()} - Moved row {movement.position.row} and column {movement.position.column}");
+                        Console.WriteLine($"Player {movement.player.ToString()} - Moved row {movement.position.Row} and column {movement.position.Column}");
                     }
                     canvas.PrintBoard();
                     Console.WriteLine("\n");
@@ -28,7 +28,7 @@
                     string row = Console.ReadLine();
                     Console.WriteLine("In which column do you want to play? ");
                     string column = Console.ReadLine();
-                    Position position = canvas.ReadPosition(row, column);
+                    Position position = Canvas.ReadPosition(row, column);
                     match.MakeMove(position);
                     canvas.PrintBoard();
                     match.CheckWinner();

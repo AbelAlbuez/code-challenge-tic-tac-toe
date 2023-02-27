@@ -10,13 +10,13 @@ namespace VENUS.TICTACTOE.DOMAIN
 {
     public class Player
     {
-        public Position position { get; set; }
-        public Names name { get; set; }
+        public Position Position { get; set; }
+        public Names Name { get; set; }
 
         public Player(Names name)
         {
-            this.position = null;
-            this.name = name;
+            this.Position = null;
+            this.Name = name;
         }
     }
 }
