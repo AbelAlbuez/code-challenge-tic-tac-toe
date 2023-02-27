@@ -16,6 +16,11 @@
             CurrentPlayer = Names.O;
         }
 
+        public Match(Board _board)
+        {
+            board = _board;
+        }
+
 
         public void ChangePlayer() =>  CurrentPlayer = CurrentPlayer == Names.X ? Names.O : Names.X;
 
@@ -52,7 +57,6 @@
                 if(board.Table[0, 0] == board.Table[0, 1] && board.Table[0, 1]  == board.Table[0, 2])
                 {
                     Console.WriteLine("The Player {0} is Winner", board.Table[0, 2]);
-                    Console.Read();
                     GameOver = true;
                 }
             }
@@ -62,7 +66,6 @@
                 if (board.Table[1, 0] == board.Table[1, 1] && board.Table[1, 1] == board.Table[1, 2])
                 {
                     Console.WriteLine("The Player {0} is Winner", board.Table[0, 2]);
-                    Console.Read();
                     GameOver = true;
                 }
             }
@@ -72,7 +75,6 @@
                 if (board.Table[2, 0] == board.Table[2, 1] && board.Table[2, 1] == board.Table[2, 2])
                 {
                     Console.WriteLine("The Player {0} is Winner", board.Table[0, 2]);
-                    Console.Read();
                     GameOver = true;
                 }
             }
@@ -84,7 +86,6 @@
                 if (board.Table[0, 0] == board.Table[1, 0] && board.Table[2, 1] == board.Table[2, 2])
                 {
                     Console.WriteLine("The Player {0} is Winner", board.Table[0, 2]);
-                    Console.Read();
                     GameOver = true;
                 }
             }
@@ -95,7 +96,7 @@
                 if (board.Table[0, 1] == board.Table[1, 1] && board.Table[1, 1] == board.Table[2, 1])
                 {
                     Console.WriteLine("The Player {0} is Winner", board.Table[0, 2]);
-                    Console.Read();
+                    
                     GameOver = true;
                 }
             }
@@ -106,7 +107,7 @@
                 if (board.Table[0, 2] == board.Table[1, 2] && board.Table[1, 2] == board.Table[2, 2])
                 {
                     Console.WriteLine("The Player {0} is Winner", board.Table[0, 2]);
-                    Console.Read();
+                    
                     GameOver = true;
                 }
             }
@@ -117,7 +118,7 @@
                 if (board.Table[0, 2] == board.Table[1, 1] && board.Table[1, 1] == board.Table[2, 0])
                 {
                     Console.WriteLine("The Player {0} is Winner", board.Table[0, 2]);
-                    Console.Read();
+                    
                     GameOver = true;
                 }
             }
@@ -129,7 +130,7 @@
                 if (board.Table[2, 0] == board.Table[1, 1] && board.Table[1, 1] == board.Table[0, 2])
                 {
                     Console.WriteLine("The Player {0} is Winner", board.Table[0, 2]);
-                    Console.Read();
+                    
                     GameOver = true;
                 }
             }

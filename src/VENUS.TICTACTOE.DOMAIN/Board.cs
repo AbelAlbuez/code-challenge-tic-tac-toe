@@ -28,7 +28,7 @@ namespace VENUS.TICTACTOE.DOMAIN
 
         public string GetAllPosition(int Rows, int Columns)
         {
-            if(string.IsNullOrWhiteSpace(Table[Rows, Columns]))
+            if (string.IsNullOrWhiteSpace(Table[Rows, Columns]))
             {
                 return null;
             }
@@ -36,10 +36,8 @@ namespace VENUS.TICTACTOE.DOMAIN
             return Table[Rows, Columns];
         }
 
-        public bool PositionIsAvailable(Position position)
-        {
-            return !string.IsNullOrWhiteSpace(GetPosition(position));
-        }
+        public bool PositionIsAvailable(Position position) => string.IsNullOrWhiteSpace(GetPosition(position));
+
         public bool IsOutOfBoard(Position position)
         {
             if (position.Row < 0 || position.Row >= Rows || position.Column < 0 || position.Column >= Columns)
@@ -52,15 +50,11 @@ namespace VENUS.TICTACTOE.DOMAIN
 
         public void MovePlayerAt(Player player, Position position)
         {
-            if (PositionIsAvailable(position))
-            {
-               throw new Exception($"Player {player.ToString()}: Cannot move to an occupied Position");
-            }
-            else
-            {
-                Table[position.Row, position.Column] = player.ToString();
-                player.Position = position;
-            }
+            if (!PositionIsAvailable(position))
+                throw new Exception($"Player {player.ToString()}: Cannot move to an occupied Position");
+
+            Table[position.Row, position.Column] = player.ToString();
+            player.Position = position;
         }
 
         public void InsideOfBoard(Position position)
