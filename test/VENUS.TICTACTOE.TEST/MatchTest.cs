@@ -16,25 +16,33 @@ namespace VENUS.TICTACTOE.TEST
         }
 
         #region CheckWinner Validation
-        public static IEnumerable<Position[]> Positions =>
-           new List<Position[]>
-           {
-            // Horzontal Winning Condtion
-            new Position[] { new Position(0, 0), new Position(1, 0),  new Position(0, 1), new Position(2, 1), new Position(0, 2)},
-            new Position[] { new Position(1, 0), new Position(2, 0),  new Position(1, 1), new Position(2, 1), new Position(1, 2)},
-            new Position[] { new Position(2, 0), new Position(0, 1),  new Position(2, 1), new Position(1, 1), new Position(2, 2)},
-            // Left Winning Condtion
-            new Position[] { new Position(0, 0), new Position(1, 1),  new Position(1, 0), new Position(2, 2), new Position(2, 0)},
-            // Middle Winning Condition
-            new Position[] { new Position(0, 1), new Position(0, 0),  new Position(1, 1), new Position(2, 2), new Position(2, 1)},
-            // Right Winning Condition
-            new Position[] { new Position(0, 2), new Position(1, 1),  new Position(1, 2), new Position(0, 0), new Position(2, 2)},
-            // Diagonal Winning Condition
-            new Position[] { new Position(0, 2), new Position(2, 1),  new Position(1, 1), new Position(0, 0), new Position(2, 0)},
-            // Anti Diagonal Winning Condition
-            new Position[] { new Position(2, 0), new Position(2, 1),  new Position(1, 1), new Position(0, 0), new Position(0, 2)},
-           };
+        [Fact]
+        public void CheckWinner_WhenNumberOfPlayLeftIsZero_GameOverIsTrue()
+        {
+            var match = new Match();
+            match.MakeMove(new Position(0, 0));
+            match.CheckWinner();
+            match.MakeMove(new Position(0, 1));
+            match.CheckWinner();
+            match.MakeMove(new Position(0, 2));
+            match.CheckWinner();
+            match.MakeMove(new Position(1, 1));
+            match.CheckWinner();
+            match.MakeMove(new Position(1, 0));
+            match.CheckWinner();
+            match.MakeMove(new Position(1, 2));
+            match.CheckWinner();
+            match.MakeMove(new Position(2, 0));
+            match.CheckWinner();
+            match.MakeMove(new Position(2, 1));
+            match.CheckWinner();
+            match.MakeMove(new Position(2, 2));
+            match.CheckWinner();
+            Assert.True(match.GameOver);
+            Assert.Equal(0, match.NumberOfPlayLeft);
+        }
 
+    
         [Theory]
         [MemberData(nameof(Positions))]
 
@@ -51,7 +59,25 @@ namespace VENUS.TICTACTOE.TEST
             Assert.True(match.GameOver);
         }
 
-       
+        public static IEnumerable<Position[]> Positions =>
+          new List<Position[]>
+          {
+            // Horzontal Winning Condtion
+            new Position[] { new Position(0, 0), new Position(1, 0),  new Position(0, 1), new Position(2, 1), new Position(0, 2)},
+            new Position[] { new Position(1, 0), new Position(2, 0),  new Position(1, 1), new Position(2, 1), new Position(1, 2)},
+            new Position[] { new Position(2, 0), new Position(0, 1),  new Position(2, 1), new Position(1, 1), new Position(2, 2)},
+            // Left Winning Condtion
+            new Position[] { new Position(0, 0), new Position(1, 1),  new Position(1, 0), new Position(2, 2), new Position(2, 0)},
+            // Middle Winning Condition
+            new Position[] { new Position(0, 1), new Position(0, 0),  new Position(1, 1), new Position(2, 2), new Position(2, 1)},
+            // Right Winning Condition
+            new Position[] { new Position(0, 2), new Position(1, 1),  new Position(1, 2), new Position(0, 0), new Position(2, 2)},
+            // Diagonal Winning Condition
+            new Position[] { new Position(0, 2), new Position(2, 1),  new Position(1, 1), new Position(0, 0), new Position(2, 0)},
+            // Anti Diagonal Winning Condition
+            new Position[] { new Position(2, 0), new Position(2, 1),  new Position(1, 1), new Position(0, 0), new Position(0, 2)},
+          };
+
         #endregion
     }
 }
