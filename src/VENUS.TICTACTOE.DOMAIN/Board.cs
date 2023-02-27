@@ -51,7 +51,7 @@ namespace VENUS.TICTACTOE.DOMAIN
         public void MovePlayerAt(Player player, Position position)
         {
             if (!PositionIsAvailable(position))
-                throw new Exception($"Player {player.ToString()}: Cannot move to an occupied Position");
+                throw new ArgumentException($"Player {player.ToString()}: Cannot move to an occupied Position");
 
             Table[position.Row, position.Column] = player.ToString();
             player.Position = position;
@@ -61,7 +61,7 @@ namespace VENUS.TICTACTOE.DOMAIN
         {
             if (!IsOutOfBoard(position))
             {
-                throw new Exception($"Invalid move: Cannot move to a Position off the Table.");
+                throw new ArgumentException($"Invalid move: Cannot move to a Position off the Table.");
             }
         }
     }

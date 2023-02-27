@@ -13,7 +13,7 @@
         public Match()
         {
             board = new Board(3, 3);
-            CurrentPlayer = Names.O;
+            CurrentPlayer = Names.X;
         }
 
         public Match(Board _board)
@@ -26,7 +26,7 @@
 
         public Player GetCurrentPlayer()
         {
-            if (CurrentPlayer == Names.X)
+            if (CurrentPlayer == Names.O)
             {
                 return new PlayerO(Names.O);
             }

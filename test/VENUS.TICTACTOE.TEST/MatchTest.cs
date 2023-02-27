@@ -15,6 +15,16 @@ namespace VENUS.TICTACTOE.TEST
             Assert.NotEqual(initialPlayer, currentPlayer);
         }
 
+        [Fact]
+        public void MakeMove_WhenPlayerMoveToOccupiedPosition_ThrowAnException()
+        {
+            Match match = new Match();
+            var initialPlayer = match.CurrentPlayer;
+            match.MakeMove(new Position(0, 1));
+            Assert.Throws<ArgumentException>(() => match.MakeMove(new Position(0, 1)));
+            Assert.Equal(Names.O, match.CurrentPlayer);
+        }
+
         #region CheckWinner Validation
         [Fact]
         public void CheckWinner_WhenNumberOfPlayLeftIsZero_GameOverIsTrue()
