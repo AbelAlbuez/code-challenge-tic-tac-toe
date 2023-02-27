@@ -56,7 +56,7 @@
             if ( board.GetAllPosition(0, 0) != null ) { 
                 if(board.Table[0, 0] == board.Table[0, 1] && board.Table[0, 1]  == board.Table[0, 2])
                 {
-                    Console.WriteLine("The Player {0} is Winner", board.Table[0, 2]);
+                    Console.WriteLine("The Player {0} is Winner", board.Table[0, 0]);
                     GameOver = true;
                 }
             }
@@ -65,7 +65,7 @@
             {
                 if (board.Table[1, 0] == board.Table[1, 1] && board.Table[1, 1] == board.Table[1, 2])
                 {
-                    Console.WriteLine("The Player {0} is Winner", board.Table[0, 2]);
+                    Console.WriteLine("The Player {0} is Winner", board.Table[1, 0]);
                     GameOver = true;
                 }
             }
@@ -74,7 +74,7 @@
             {
                 if (board.Table[2, 0] == board.Table[2, 1] && board.Table[2, 1] == board.Table[2, 2])
                 {
-                    Console.WriteLine("The Player {0} is Winner", board.Table[0, 2]);
+                    Console.WriteLine("The Player {0} is Winner", board.Table[2, 0]);
                     GameOver = true;
                 }
             }
@@ -83,9 +83,9 @@
             #region Left Winning Condtion
             if (board.GetAllPosition(0, 0) != null)
             {
-                if (board.Table[0, 0] == board.Table[1, 0] && board.Table[2, 1] == board.Table[2, 2])
+                if (board.Table[0, 0] == board.Table[1, 0] && board.Table[1, 0] == board.Table[2, 0])
                 {
-                    Console.WriteLine("The Player {0} is Winner", board.Table[0, 2]);
+                    Console.WriteLine("The Player {0} is Winner", board.Table[0, 0]);
                     GameOver = true;
                 }
             }
