@@ -1,3 +1,4 @@
+using System.Numerics;
 using VENUS.TICTACTOE.DOMAIN;
 using VENUS.TICTACTOE.DOMAIN.Constants;
 
@@ -6,7 +7,7 @@ namespace VENUS.TICTACTOE.TEST
     public class MatchTest
     {
         [Fact]
-        public void ChangePlayer_WhenMakeAPlay_PlayerChange()
+        public void MakeMove_WhenMakeAPlay_PlayerChange()
         {
             Match match = new Match();
             var initialPlayer = match.CurrentPlayer;
@@ -16,13 +17,43 @@ namespace VENUS.TICTACTOE.TEST
         }
 
         [Fact]
+        public void MakeMove_WhenPlayerMoveToPosition_DecreasedNumberOfPlaysLeft()
+        {
+            Match match = new Match();
+            var initialNumberOfPlayLeft = match.NumberOfPlayLeft;
+            match.MakeMove(new Position(0, 1));
+            Assert.NotEqual(initialNumberOfPlayLeft, match.NumberOfPlayLeft);
+        }
+
+        [Fact]
+        public void MakeMove_WhenPlayerMoveToPosition_SaveMovement()
+        {
+            Match match = new Match();
+            var initialPlayer = match.CurrentPlayer;
+            var positionToMove = new Position(0, 1);
+            match.MakeMove(positionToMove);
+            Assert.Equal(positionToMove, match.Movements[0].position);
+            Assert.Equal(initialPlayer.ToString(), match.Movements[0].player.ToString());
+        }
+
+        [Fact]
         public void MakeMove_WhenPlayerMoveToOccupiedPosition_ThrowAnException()
         {
             Match match = new Match();
             var initialPlayer = match.CurrentPlayer;
             match.MakeMove(new Position(0, 1));
-            Assert.Throws<ArgumentException>(() => match.MakeMove(new Position(0, 1)));
+            var ex = Assert.Throws<ArgumentException>(() => match.MakeMove(new Position(0, 1)));
+            Assert.Equal(ex.Message, $"Player {match.CurrentPlayer.ToString()}: Cannot move to an occupied Position");
             Assert.Equal(Names.O, match.CurrentPlayer);
+        }
+
+        [Fact]
+        public void MakeMove_WhenPlayerMoveOutOfBoard_ThrowAnException()
+        {
+            Match match = new Match();
+            var ex = Assert.Throws<ArgumentException>(() => match.MakeMove(new Position(5, 1)));
+            Assert.Equal(ex.Message, $"Invalid move: Cannot move to a Position off the Table.");
+            Assert.Equal(Names.X, match.CurrentPlayer);
         }
 
         #region CheckWinner Validation
