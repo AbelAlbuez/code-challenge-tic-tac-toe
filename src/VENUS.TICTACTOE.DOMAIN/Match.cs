@@ -112,12 +112,13 @@
                 }
             }
             #endregion
-            #region Diagonal Winning Condition
-            if (board.GetAllPosition(0, 2) != null)
+
+            #region Diagonal Principal Winning Condition
+            if (board.GetAllPosition(0, 0) != null)
             {
-                if (board.Table[0, 2] == board.Table[1, 1] && board.Table[1, 1] == board.Table[2, 0])
+                if (board.Table[0, 0] == board.Table[1, 1] && board.Table[1, 1] == board.Table[2, 2])
                 {
-                    Console.WriteLine("The Player {0} is Winner", board.Table[0, 2]);
+                    Console.WriteLine("The Player {0} is Winner", board.Table[0, 0]);
                     
                     GameOver = true;
                 }
@@ -125,9 +126,9 @@
             #endregion
 
             #region Anti Diagonal Winning Condition
-            if (board.GetAllPosition(2, 0) != null)
+            if (board.GetAllPosition(0, 2) != null)
             {
-                if (board.Table[2, 0] == board.Table[1, 1] && board.Table[1, 1] == board.Table[0, 2])
+                if (board.Table[0, 2] == board.Table[1, 1] && board.Table[1, 1] == board.Table[2, 0])
                 {
                     Console.WriteLine("The Player {0} is Winner", board.Table[0, 2]);
                     

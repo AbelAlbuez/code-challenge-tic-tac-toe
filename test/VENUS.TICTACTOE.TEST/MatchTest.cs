@@ -113,10 +113,10 @@ namespace VENUS.TICTACTOE.TEST
             new Position[] { new Position(0, 1), new Position(0, 0),  new Position(1, 1), new Position(2, 2), new Position(2, 1)},
             // Right Winning Condition
             new Position[] { new Position(0, 2), new Position(1, 1),  new Position(1, 2), new Position(0, 0), new Position(2, 2)},
-            // Diagonal Winning Condition
-            new Position[] { new Position(0, 2), new Position(2, 1),  new Position(1, 1), new Position(0, 0), new Position(2, 0)},
             // Anti Diagonal Winning Condition
-            new Position[] { new Position(2, 0), new Position(2, 1),  new Position(1, 1), new Position(0, 0), new Position(0, 2)},
+            new Position[] { new Position(0, 2), new Position(2, 1),  new Position(1, 1), new Position(0, 0), new Position(2, 0)},
+            // Principal Diagonal Winning Condition
+            new Position[] { new Position(0, 0), new Position(2, 0),  new Position(1, 1), new Position(0, 2), new Position(2, 2)},
           };
 
         #endregion
