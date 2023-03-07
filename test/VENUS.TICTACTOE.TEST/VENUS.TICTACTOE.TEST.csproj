@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\VENUS.TICTACTOE.DOMAIN\VENUS.TICTACTOE.DOMAIN.csproj" />
+    <ProjectReference Include="..\..\src\VENUS.TICTACTOE.DOMAIN\Venus.Tictactoe.Domain.csproj" />
   </ItemGroup>
 
 </Project>
